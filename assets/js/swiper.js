@@ -54,6 +54,7 @@ function swipe() {
 		});
 
 		hammertime.on("panend", function(event) {
+
 			el.classList.remove("moving");
 			tinderContainer.classList.remove("tinder_love");
 			tinderContainer.classList.remove("tinder_nope");
@@ -66,6 +67,7 @@ function swipe() {
 
 			if (keep) {
 				event.target.style.transform = "";
+				
 			} else {
 				var endX = Math.max(
 					Math.abs(event.velocityX) * moveOutWidth,
@@ -88,11 +90,20 @@ function swipe() {
 					"deg)";
 				initCards();
 			}
+
+			if(event.deltaX >= 0) {
+				let detailPage = event.target.getAttribute('data-page');
+				window.open(detailPage, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=700"); 	
+			}
+
+			
 		});
 	});
 
 	function createButtonListener(love) {
+		
 		return function(event) {
+			
 			var cards = document.querySelectorAll(
 				".tinder--card:not(.removed)"
 			);
@@ -107,6 +118,9 @@ function swipe() {
 			if (love) {
 				card.style.transform =
 					"translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
+
+				let detailPage = card.getAttribute('data-page');
+				window.open(detailPage, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=700"); 	
 			} else {
 				card.style.transform =
 					"translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
