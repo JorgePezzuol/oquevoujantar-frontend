@@ -1,24 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+	let apiURL = "http://127.0.0.1:3005/api/fetchFood";
 
-    let apiURL = 'http://127.0.0.1:3001/api/fetchFood';
+	async function fetchMenu() {
+		try {
+			let response = await axios.get(apiURL);
 
-    async function fetchRestaurants() {
-        
-        try {
+			if (response.status != 200) {
+			}
 
-            let response = await axios.get(apiURL);
+			return response.data.sort( () => Math.random() - 0.5);
+		} catch (err) {}
+	}
 
-            if(response.status != 200) {
+	async function createCardSwiper(data) {
+		for (let food of data) {
+			let card = `<div class="tinder--card">
+                <img src=${data.logoUrl} />
+                <h3>${data.name}</h3>
+                <p>${data.details}</p>
+            </div>`;
 
-            }
+			document
+				.querySelector("#tinder-cards")
+				.insertAdjacentHTML("beforeend", card);
+		}
+	}
 
-            return response.data;
+	(async () =>
+		fetchMenu().then(data => {
+			for (let food of data) {
+				var card = `<div class="tinder--card">
+                <img src='${food.logoUrl}' />
+                <h3>${food.description}</h3>
+                <p>${food.details}</p>
+            </div>`;
 
-        } catch (err) {
-
-        }
-    }
-
-    fetchRestaurants().then(res => console.log(res));
-
+				document
+					.querySelector("#tinder-cards")
+					.insertAdjacentHTML("beforeend", card);
+			}
+		}))().then(() => {
+		swipe();
+	});
 });
