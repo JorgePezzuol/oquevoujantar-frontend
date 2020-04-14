@@ -1,9 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
 	let apiURL = "http://127.0.0.1:3005/api/fetchFood";
 
+	function getCategory(category) {
+
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		return urlParams.get('category');
+	}
+
 	async function fetchMenu() {
 		try {
-			let response = await axios.get(apiURL);
+			let response = await axios.get(apiURL, {
+
+				params: {
+					category: getCategory()
+				}
+			});
 
 			if (response.status != 200) {
 			}
@@ -18,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				var logo  = "";
 				
-
 				if(food.logoUrl != undefined) {
 					logo = `https://static-images.ifood.com.br/image/upload/f_auto,t_high/pratos/${food.logoUrl}`;
 				}
@@ -32,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				var card = `<div class="tinder--card" data-page=${page}>
 								<h1 class='card-header'>${food.restaurant.name}</h1>
-								<img style='max-height:200px;' src=${logo} />
+								<img crossorigin='anonymous' style='max-height:200px;' src=${logo} />
 								<h3 style='font-style: italic'>${food.description}</h3>
 								<p>${displayDetais(food.details, 100)}</p>
 								<h4>${food.unitPrice}</h4>

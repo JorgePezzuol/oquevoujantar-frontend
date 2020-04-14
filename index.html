@@ -6,17 +6,7 @@
 		<title>Page Title</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!--
-        https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.2.0
-        https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0
-        https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.2.0
-        https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular
-    -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="assets/css/bootstrap-4.css" />
 		<link
 			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 			rel="stylesheet"
@@ -40,22 +30,32 @@
 		/>
 	</head>
 	<body>
-		<div class="container">
-			<div class="row text-center">
-				<h2 style='color: #fff;'>Também disponível em</h2>
+		<br/>
+		<div class="spinner"></div>
+		<div class="container d-flex justify-content-center align-content-center">
+			<div class="col">
+				<div
+					class="row text-center d-flex justify-content-center align-content-center"
+				>
+					<h2 style="color: #fff;">Também disponível em</h2>
+				</div>
 				<br />
-				<p>
-					<a href="#" class="btn btn-store">
-						<span class="fa fa-apple fa-3x pull-left"></span>
-						<span class="btn-label">Download em</span>
-						<span class="btn-caption">App Store</span>
-					</a>
-					<a href="#" class="btn btn-store">
-						<span class="fa fa-android fa-3x pull-left"></span>
-						<span class="btn-label">Download em</span>
-						<span class="btn-caption">Google Play</span>
-					</a>
-				</p>
+				<div
+					class="row mt-2 text-center d-flex justify-content-center align-content-center"
+				>
+				
+						<a href="#" class="btn btn-store">
+							<span class="fa fa-apple fa-3x pull-left"></span>
+							<span class="btn-label">Download</span>
+							<span class="btn-caption">App Store</span>
+						</a>
+						<a id="btn-download-gp" style='margin-left:20px;' href="#" class="btn btn-store">
+							<span class="fa fa-android fa-3x pull-left"></span>
+							<span class="btn-label">Download</span>
+							<span class="btn-caption">Google Play</span>
+						</a>
+					
+				</div>
 			</div>
 		</div>
 		<div class="tinder">
@@ -67,7 +67,12 @@
 			<div class="tinder--cards" id="tinder-cards"></div>
 
 			<div class="tinder--buttons">
-				<button id="sliders"><i class="fa fa-sliders"></i></button>
+				<button
+					onclick="window.location='categories.html'"
+					id="sliders"
+				>
+					<i class="fa fa-sliders"></i>
+				</button>
 				<button id="nope"><i class="fa fa-remove"></i></button>
 				<button id="love"><i class="fa fa-heart"></i></button>
 			</div>

@@ -186,3 +186,31 @@
   .btn-store .btn-caption {
     font-size: 24px;
   }
+
+  .img-rounded {
+    max-height:100px;
+  }
+
+  .font-30 {
+    font-size: 30px;
+    color: #bc5100;
+  }
+
+  .spinner {
+    border: 1px solid;
+    position: fixed;
+    /* z-index: 1; */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url("loader.gif") center / 50px no-repeat;
+  }
+  
+
+  @media only screen and (max-width: 600px) {
+    #btn-download-gp {
+      margin-left: 0px !important;
+      margin-top: 10px;
+    }
+  }
