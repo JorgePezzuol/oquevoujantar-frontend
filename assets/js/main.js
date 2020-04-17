@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function showNoResults() {
 
-		var card = "<div class='tinder--card'><h1 class='card-header'>test resultados</h1></div>";
+		var card = "<div class='tinder--card'><h1 class='card-header'>Sem resultados</h1></div>";
 
 		document
 		.querySelector("#tinder-cards")
