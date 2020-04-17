@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-	let apiURL = "http://127.0.0.1:3005/api/fetchFood";
+	//let apiURL = "http://127.0.0.1:3005/api/fetchFood";
+	let apiURL = "https://oquejantar-api.herokuapp.com/api/fetchFood";
 
 	function getCategory(category) {
 
@@ -16,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			return response.data;
 
 		} catch(err) {
-			console.log(err);
 		}
 	}
 
