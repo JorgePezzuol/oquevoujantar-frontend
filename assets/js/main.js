@@ -8,6 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		return urlParams.get("categories");
 	}
 
+	function getTest() {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		if(urlParams.get("test")) {
+			return true;
+		}
+		return false;
+	}
+
 	async function getGeolocate() {
 		try {
 			let response = await axios.get(
@@ -25,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				params: {
 					category: getCategory(),
 					latitude: geolocate.location.lat,
-					longitude: geolocate.location.lng
+					longitude: geolocate.location.lng,
+					test: getTest()
 				}
 			});
 
