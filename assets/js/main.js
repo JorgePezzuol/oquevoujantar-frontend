@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					category: getCategory(),
 					latitude: geolocate.location.lat,
 					longitude: geolocate.location.lng,
-					test: getTest()
+					test: getTest() == true ? true : undefined
 				}
 			});
 
